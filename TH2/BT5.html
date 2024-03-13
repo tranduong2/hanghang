@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            position: relative;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 0px;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: #888; /* Màu box */
+            display: block;
+            margin-bottom: 10px; 
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            
+            margin-right: 50px; /* Căng lề phải */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return showPasswordConfirmation()">
+        <h2>Login</h2>
+        <input type="text" id="fullName" name="fullName" placeholder="User Name" required>
+        <input type="password" id="Password" name="password" placeholder="Password" required>
+        <input type="submit" value="Đăng nhập">
+        
+        <script>
+            function showPasswordConfirmation() {
+                // Hiển thị cửa sổ xác nhận khi nhấp vào nút "Đăng nhập"
+                var isShowPassword = confirm("Bạn muốn hiện mật khẩu?");
+                
+                // Nếu người dùng chọn "OK", thay đổi kiểu ô mật khẩu thành "text"
+                if (isShowPassword) {
+                    document.getElementById("Password").type = "text";
+                }
+
+                // Nếu người dùng chọn "Cancel" hoặc đóng cửa sổ xác nhận, tiếp tục với việc submit biểu mẫu
+                return true;
+            }
+        </script>
+    </form>
+</body>
+</html>
